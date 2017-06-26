@@ -15,8 +15,8 @@
         <property name="dataSource" ref="dataSource"></property>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop><!--validate, update, create, or createdrop-->
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop><!--A dialect is a specific sql syntax used for a specific database-->
+                <prop key="hibernate.hbm2ddl.auto">update</prop><!--validate, update, create, or createdrop schema-->
                 <prop key="hibernate.show_sql">true</prop> <!--when sql is generated, it will show in output of IDE-->
                 <prop key="hibernate.format_sql">true</prop> <!--output sql will be formatted-->
             </props>
@@ -30,5 +30,9 @@
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1024000" />
     </bean>
 </beans>

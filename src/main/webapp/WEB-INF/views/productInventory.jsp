@@ -26,20 +26,31 @@
                   <th>Manufacturer</th>-->
             <c:forEach items="${products}" var="product">
                 <tr>
-                    <td><img src="#" alt="image"/></td>
+                    <td><img src="<c:url value="/resources/images/${product.productId}.png" />" alt="image"
+                    style="width:100%"/></td>
                     <td>${product.productName}</td>
                     <td>${product.productCategory}</td>
                     <td>${product.productDescription}</td>
                     <td>${product.productCondition}</td>
                     <td>${product.productPrice} USD</td>
                     <td><a href="<spring:url value="/productList/viewProduct/${product.productId}" />">
-                        <span class="glyphicon glyphicon-info-sign"></span></a></td>
+                        <span class="glyphicon glyphicon-info-sign"></span></a>
                     <!--displays info glyphicon and links to viewProduct page-->
+
+                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productId}" />">
+                        <span class="glyphicon glyphicon-remove"></span></a></td>
+                    <!--displays trash can glyphicon and links to admin/productInventory/deleteProduct page-->
+
+
+
+                    <a href="<spring:url value="/admin/productInventory/editProduct/${product.productId}" />">
+                        <span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <!--displays pencil glyphicon and links to admin/productInventory/editProduct page-->
                 </tr>
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/productInventory/addProduct" />">Add Product</a>
+        <a href="<spring:url value="/admin/productInventory/addProduct" />" class="btn btn-primary">Add Product</a>
 
 
 

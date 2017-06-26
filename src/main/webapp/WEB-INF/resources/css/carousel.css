@@ -4,6 +4,7 @@
 body {
     padding-bottom: 40px;
     color: #5a5a5a;
+    /*  background: whitesmoke;*/
 }
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -32,15 +33,19 @@ body {
 /* Carousel base class */
 .carousel {
     height: 500px;
+    /*height: 800px;*/
     margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
     z-index: 10;
+    top:230px;
+    bottom: auto;
 }
 /* Declare heights because of positioning of img element */
 .carousel .item {
     height: 500px;
+    /*height: 800px;*/
     background-color: #777;
 }
 .carousel-inner > .item > img {
@@ -49,6 +54,7 @@ body {
     left: 0;
     min-width: 100%;
     height: 500px;
+    /*height: 800px;*/
 }
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -80,13 +86,11 @@ body {
 -------------------------------------------------- */
 @media (min-width: 768px) {
     /* Navbar positioning foo */
-    .navbar-wrapper {
-        margin-top: 20px;
-    }
+ /*
     .navbar-wrapper .container {
         padding-right: 15px;
-        padding-left: 15px;
-    }
+        padding-left: 15px;  -uncomment this is you don't like it on mobile
+    }*/
     .navbar-wrapper .navbar {
         padding-right: 0;
         padding-left: 0;

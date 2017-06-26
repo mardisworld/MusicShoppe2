@@ -11,25 +11,26 @@
         <div class="container">
                 <div class="row">
                         <div class="col-md-5">
-                            <img src="#" alt="image" style="width: 100%; height: 300px" />
+                            <img src="<c:url value="/resources/images/${product.productId}.png" />" alt="image"
+                                     style="width:100%"/>
                         </div>
                             <div class="col-md-5">
-                                <h3>${product.productName} </h3>
-                                <h2>
-                                    <em>Description</em>: ${product.productDescription}
-                                </h2>
-                                <h2>
-                                    <em>Manufacturer</em>: ${product.productManufacturer}
-                                </h2>
-                                <h2>
-                                    <em>Category</em>: ${product.productCategory}
-                                </h2>
-                                <h2>
-                                    <em>Condition</em>: ${product.productCondition}
-                                </h2>
-                                <h2>
-                                    <em>Price</em>: ${product.productPrice}
-                                </h2>
+                                <h2>${product.productName} </h2>
+                                <h3>
+                                    <bold>Description</bold>: ${product.productDescription}
+                                </h3>
+                                <h3>
+                                    <bold>Manufacturer</bold>: ${product.productManufacturer}
+                                </h3>
+                                <h3>
+                                    <bold>Category</bold>: ${product.productCategory}
+                                </h3>
+                                <h3>
+                                    <bold>Condition</bold>: ${product.productCondition}
+                                </h3>
+                                <h3>
+                                    <bold>Price</bold>: ${product.productPrice} USD
+                                </h3>
                             </div>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue
-    private String productId;
+    private Integer productId;
 
 
     @NotEmpty (message = "The product name must not be null.")
@@ -55,11 +55,11 @@ public class Product implements Serializable {
     @JsonIgnore
     private List<CartItem> cartItemList;
 
-    public String getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 

@@ -12,7 +12,7 @@ public interface CustomerDao {
 
     void addCustomer(Customer customer);
 
-    Customer getCutomerById(int customerId);
+    Customer getCustomerById(int customerId);
 
     List<Customer> getAllCustomers();
 

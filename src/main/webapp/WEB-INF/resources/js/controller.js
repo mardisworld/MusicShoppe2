@@ -14,7 +14,7 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
     };
 
     $scope.clearCart = function() {
-        $http.delete(' /musicShoppe2/rest/cart' +$scope.cartId).success($scope.refreshCart($scope.refreshCart($scope.cartId));
+        $http.delete(' /musicShoppe2/rest/cart' +$scope.cartId).success($scope.refreshCart($scope.refreshCart($scope.cartId)));
     };
 
 

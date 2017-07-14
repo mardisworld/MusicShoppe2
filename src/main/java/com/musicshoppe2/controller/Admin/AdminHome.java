@@ -29,7 +29,7 @@ public class AdminHome {
     @RequestMapping("productInventory")
     public String productInventory(Model model) {
         List<Product> products = productService.getProductList();
-        model.addAttribute("products", products)
+        model.addAttribute("products", products);
 
         return "productInventory";
     }

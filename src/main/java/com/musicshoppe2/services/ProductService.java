@@ -1,14 +1,13 @@
-package com.musicshoppe2.dao;
+package com.musicshoppe2.services;
 
 import com.musicshoppe2.model.Product;
 
 import java.util.List;
 
 /**
- * Created by Marissa on 6/16/17.
+ * Created by Marissa on 7/9/17.
  */
-public interface ProductDao {
-
+public interface ProductService {
 
     List<Product> getProductList();
 

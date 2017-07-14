@@ -33,7 +33,7 @@
                     <td>${product.productDescription}</td>
                     <td>${product.productCondition}</td>
                     <td>${product.productPrice} USD</td>
-                    <td><a href="<spring:url value="/productList/viewProduct/${product.productId}" />">
+                    <td><a href="<spring:url value="/product/viewProduct/${product.productId}" />">
                         <span class="glyphicon glyphicon-info-sign"></span></a>
                     <!--displays info glyphicon and links to viewProduct page-->
 
@@ -50,7 +50,7 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/productInventory/addProduct" />" class="btn btn-primary">Add Product</a>
+        <a href="<spring:url value="/admin/product/addProduct" />" class="btn btn-primary">Add Product</a>
 
 
 

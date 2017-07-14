@@ -1,49 +1,67 @@
 package com.musicshoppe2.model;
 
-
-
-import org.springframework.web.multipart.MultipartFile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.musicshoppe2.model.*;
 import org.hibernate.validator.constraints.NotEmpty;
-import javax.validation.constraints.Min;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import java.io.Serializable;
+import java.util.List;
+
+
+import com.musicshoppe2.model.CartItem;
+
 
 /**
- * Created by Marissa on 6/4/17.
+ * Created by Marissa on 7/9/17.
  */
 
 
-//jpa is higher level abstraction - Hibernate handles the lower level details. @Entity is JPA
-
 @Entity
-public class Product { //@Entity tells Spring that Java class is an entity that we want to be stored in the database - persist this table into the database
+public class Product implements Serializable {
+
+    //need to generate serialversionUID but can't figure out how
+    //https://stackoverflow.com/questions/24573643/how-to-generate-serial-version-uid-in-intellij
+
+
+
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int productId;   //need this in order to bind productList page with productDetail page
+    @GeneratedValue
+    private String productId;
 
-//suposed to be NotEmpty
-    @NotEmpty(message = "The product name must not be null." )
-    private String productName;  //will be "persisted" to a database - each instance of the class corresponds to one row of the table
-    private String productCategory;   //Id defines primary key in the table
-    private String productDescription;   // @GeneratedValue(strategy = GenerationType.AUTO) - tells the system that
 
-    @Min(value=0, message="The product price cannot be less than zero.")
-    private double productPrice;        //when we create a new instance and it persists to a data base the productId
-    private String productCondition;  //will be generated automatically
+    @NotEmpty (message = "The product name must not be null.")
+
+    private String productName;
+    private String productCategory;
+    private String productDescription;
+
+    @Min(value=0, message="THe product price cannot be less than $0")
+    private double producPrice;
+    private String productCondition;
     private String productStatus;
 
-    @Min(value=0, message="The number of products cannot be less than zero.")
+    @Min(value=0, message="THe product unit cannot be less than $0")
     private int unitInStock;
     private String productManufacturer;
 
     @Transient
     private MultipartFile productImage;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
 
-    public int getProductId() { return productId; }
+    public String getProductId() {
+        return productId;
+    }
 
-    public void setProductId(int productId) { this.productId = productId; }
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
     public String getProductName() {
         return productName;
@@ -69,12 +87,12 @@ public class Product { //@Entity tells Spring that Java class is an entity that 
         this.productDescription = productDescription;
     }
 
-    public double getProductPrice() {
-        return productPrice;
+    public double getProducPrice() {
+        return producPrice;
     }
 
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
+    public void setProducPrice(double producPrice) {
+        this.producPrice = producPrice;
     }
 
     public String getProductCondition() {
@@ -109,8 +127,19 @@ public class Product { //@Entity tells Spring that Java class is an entity that 
         this.productManufacturer = productManufacturer;
     }
 
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
 
-    public MultipartFile getProductImage() {return productImage; }
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
 
-    public void setProductImage(MultipartFile productImage) {this.productImage = productImage;}
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
+    }
 }

@@ -26,4 +26,13 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>    <!--change url-pattern to '/', which means the root. -->
     </servlet-mapping>
+    
+    <filter>
+        <filter-name>SpringSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SpringSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

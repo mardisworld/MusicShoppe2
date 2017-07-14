@@ -16,6 +16,11 @@
 
     <title>Marissa's Music Store</title>
 
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+
+
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
 
@@ -46,11 +51,12 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="#">Home</a></li>
-                            <li><a href="<c:url value="/productList" />">Products</a></li>
+                            <li><a href="<c:url value="/product/productList" />">Products</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                         <ul class="nav navbar-nav pull-right">
                             <li><a href="<c:url value="/admin" />">Admin</a></li>
+                            <li><a href="<c:url value="/register" />">Register</a></li>
                         </ul>
                     </div>
                 </div>

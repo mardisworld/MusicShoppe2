@@ -31,46 +31,36 @@ public class ProductDaoImpl implements ProductDao {
     @Autowired
     private SessionFactory sessionFactory;   //defined in applicationContext.xml
 
-    public void addProduct(Product product) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(product);
-        session.flush();  //Only when you flush it will session operations be executed
-
-    }
-
     public Product getProductById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Product product = (Product) session.get(Product.class, id);  //casting Product into object type
+        Product product = (Product) session.get(Product.class, id);
         session.flush();
 
         return product;
-
     }
 
-    public List<Product> getAllProducts() {
+    public List<Product> getProductList() {
         Session session = sessionFactory.getCurrentSession();
-
         Query query = session.createQuery("from Product");
-        List<Product> products=query.list();
+        List<Product> productList= query.list();
         session.flush();
-        return products;
 
-        //@SuppressWarnings("unchecked")
-       // query = session.createFilter(List, "from Product").Q createQuery("from Product"). .createQuery("from Product");
-        //org.hibernate.query.Query = session .createQuery("from Product");   //???
-       // List<Product> products = query.getResultList();  //cannot resolve symbol 'query'
-
-
+        return productList;
     }
 
-    public void deleteProduct(int id) {
+    public void addProduct(Product product) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete(getProductById(id));
+        session.saveOrUpdate(product);
         session.flush();
-
     }
 
     public void editProduct(Product product) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(product);
+        session.flush();
+    }
+
+    public void deleteProduct(Product product) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(product);
         session.flush();

@@ -8,7 +8,7 @@
             <p class="lead">Detailed Information</p>
         </div>
 
-        <div class="container">
+        <div class="container" ng-app="cartApp">
                 <div class="row">
                         <div class="col-md-5">
                             <img src="<c:url value="/resources/images/${product.productId}.png" />" alt="image"
@@ -31,11 +31,31 @@
                                 <h3>
                                     <bold>Price</bold>: ${product.productPrice} USD
                                 </h3>
+
+                                <br>
+
+                                <c:set var="role" scope="page" value="${param.role}" />
+                                <c:set var="url"scope="page" value="/productList" />
+                                <c:if test="${role='admin'}">
+                                    <c:set var="url" scope="page" value="/admin/productInventory" />
+                                </c:if>
+
+                                <p ng-controller="cartCtrl">
+                                    <a href="<c:url value="${url}" />" class="btn btn-default">Back</a>
+                                    <a href="#" class="btn btn-warning btn-large"
+                                       ng-click="addToCart('${product.productId}')"><span class="glyphicon glypicon-shopping-cart"></span>Order Now</a>
+                                    <a href="<spring:url value="/cart" />" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
+                                </p>
+
+
+
+
                             </div>
                     </div>
                 </div>
         </div>
 
+        <script src="<c:url value="/resources/js/controller.js" /> "></script>
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
 
 
